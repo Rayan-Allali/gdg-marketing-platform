@@ -27,6 +27,7 @@ model guest{
   contacts contactGuest[]
   roles role[]
   attends attend[]
+  notes note[]
 }
 
 model contactGuest{
@@ -54,6 +55,7 @@ model companie{
   Locations location[]
   contacts contactCompanie[]
   roles role[]
+  notes note[]
 }
 
 model contactCompanie{
@@ -86,4 +88,13 @@ model attend{
   guest guest @relation(fields: [guestId],references: [guestId])
   role String
   @@id([eventId,guestId])
+}
+
+model note{ 
+  idNote Int @id @default(autoincrement())
+  text String
+  guestId Int?
+  guest guest? @relation(fields: [guestId],references: [guestId])
+  companieId Int?
+  companie companie? @relation(fields: [companieId],references: [companieId])
 }

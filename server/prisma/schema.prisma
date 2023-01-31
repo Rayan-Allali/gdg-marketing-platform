@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model admin{
+  adminId Int @id @default(autoincrement())
+  Name String
+  img String
+  email String
+  password String
+}
+
+model guest{
+  guestId Int @id @default(autoincrement())
+  firstName String
+  lastName String
+  country String
+  img String
+  age Int
+  contacts contactGuest[]
+  roles role[]
+  attends attend[]
+}
+
+model contactGuest{
+  contactId Int @id @default(autoincrement())
+  contactType String
+  contactValue String
+  guestId Int
+  guest guest @relation(fields: [guestId],references: [guestId])
+}
+
+model role{
+  roleId Int @id @default(autoincrement())
+  roleType String
+  roleValue String
+  guests guest[]
+  companies companie[]
+}
+
+model companie{
+  companieId Int @id @default(autoincrement())
+  name String
+  img String
+  country String
+  size String
+  Locations location[]
+  contacts contactCompanie[]
+  roles role[]
+}
+
+model contactCompanie{
+  contactId Int @id @default(autoincrement())
+  contactType String
+  contactValue String
+  companieId Int
+  companie companie @relation(fields: [companieId],references: [companieId])
+}
+
+model location{
+  LocatinId Int @id @default(autoincrement())
+  Latitude Float
+  longitude Float
+  companieId Int
+  companie companie @relation(fields: [companieId],references: [companieId])
+}
+
+model event{
+  eventId Int @id @default(autoincrement())
+  Name String
+  img String
+  attends attend[]
+}
+
+model attend{
+  eventId Int
+  event event @relation(fields: [eventId],references: [eventId])
+  guestId Int
+  guest guest @relation(fields: [guestId],references: [guestId])
+  role String
+  @@id([eventId,guestId])
+}

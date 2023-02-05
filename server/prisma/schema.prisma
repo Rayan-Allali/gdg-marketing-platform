@@ -63,7 +63,7 @@ model contactCompanie{
   contactType String
   contactValue String
   companieId Int
-  companie companie @relation(fields: [companieId],references: [companieId])
+  companie companie @relation(fields: [companieId],references: [companieId],onDelete: Cascade)
 }
 
 model location{
@@ -71,7 +71,7 @@ model location{
   Latitude Float
   longitude Float
   companieId Int
-  companie companie @relation(fields: [companieId],references: [companieId])
+  companie companie @relation(fields: [companieId],references: [companieId],onDelete: Cascade)
 }
 
 model event{
@@ -96,5 +96,5 @@ model note{
   guestId Int?
   guest guest? @relation(fields: [guestId],references: [guestId])
   companieId Int?
-  companie companie? @relation(fields: [companieId],references: [companieId])
+  companie companie? @relation(fields: [companieId],references: [companieId],onDelete: Cascade)
 }

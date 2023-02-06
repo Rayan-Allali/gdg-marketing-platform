@@ -35,7 +35,7 @@ model contactGuest{
   contactType String
   contactValue String
   guestId Int
-  guest guest @relation(fields: [guestId],references: [guestId])
+  guest guest @relation(fields: [guestId],references: [guestId],onDelete: Cascade ,onUpdate: Cascade)
 }
 
 model role{

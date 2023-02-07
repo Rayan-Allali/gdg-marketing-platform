@@ -19,16 +19,28 @@ router.get('/:companieId',async(req,res)=>{
             contacts:true,
         },
     })
+    if (company){
     res.json(company)
+    }
+    else return res.status(404).json({
+        msg:"company not found"
+    })
 })
 
 router.delete('/delete/:companieId',async(req,res)=>{
+    try{
     const company= await companie.delete({
         where:{
             companieId:Number(req.params.companieId),
         },
     })
-    res.json("deleted")
+    res.json("deleted")}
+    catch{
+        res.status(404).json({
+            msg:"company not found"
+        })
+
+    }
 })
 
 router.post('/add',async(req,res)=>{
@@ -53,10 +65,15 @@ router.post('/add',async(req,res)=>{
             }
             }
         })
-    res.json(newCompanie)
+    if (newCompanie){
+    res.status(201).json(newCompanie)}
+    else return res.status(404).json({
+        msg:"companie was not created"
+    })
     });
 router.patch('/update/:companieId',async(req,res)=>{
     const {name,img,country,size,locations,contacts,notes,roles}=req.body
+    try{
     const updatedCompanie= await companie.update({
         where:{
             companieId:Number(req.params.companieId)
@@ -69,6 +86,9 @@ router.patch('/update/:companieId',async(req,res)=>{
         }
     })
     res.json(updatedCompanie)
+    }
+    catch {return res.status(404).json("companie not found")}
+
 })
 
 module.exports =router

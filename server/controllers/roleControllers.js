@@ -1,10 +1,9 @@
-const{PrismaClient}=require("@prisma/client")
-const {role}=new PrismaClient()
+const prisma = require("../lib/prisma");
 
 async function getAllRoles(req,res){
     try{
-    const roles= await role.findMany({})
-    res.json(roles)
+    const roles= await prisma.role.findMany({})
+    res.status(200).json(roles)
     }
     catch{
         return res.status(500).json({msg:"error"})
@@ -12,13 +11,13 @@ async function getAllRoles(req,res){
 }
 async function getRole(req,res){
     try{
-        const uniquerole= await role.findUnique({
+        const uniquerole= await prisma.role.findUnique({
             where:{
                 roleId:Number(req.params.roleId)
             }
         })
     if (uniquerole){
-        res.json(uniquerole)
+        res.status(200).json(uniquerole)
     }
     else return res.status(404).json({
         msg:"role not found"
@@ -30,12 +29,12 @@ async function getRole(req,res){
 }
 async function deleteRole(req,res){
     try{
-    const uniquerole= await role.delete({
+    const uniquerole= await prisma.role.delete({
         where:{
             roleId:Number(req.params.roleId)
         }
     })
-        res.json("deleted")
+        res.status(200).json("deleted")
     }
     catch{ 
         return res.status(404).json({msg:'role not found'})
@@ -44,7 +43,7 @@ async function deleteRole(req,res){
 
 async function addRole(req,res){
     const {roleType,roleValue}=req.body
-        const newrole=await role.create({
+        const newrole=await prisma.role.create({
             data:{
                 roleValue,
                 roleType
@@ -58,7 +57,7 @@ async function addRole(req,res){
 async function updateRole(req,res){
     const {roleType,roleValue}=req.body
     try{
-    const updatedrole= await role.update({
+    const updatedrole= await prisma.role.update({
         where:{
             roleId:Number(req.params.roleId)
         },

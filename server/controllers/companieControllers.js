@@ -64,7 +64,7 @@ exports.AddCompany=async(req,res)=>{
     if(!name || !img || !country || !size || !locations || !contacts) return res.status(400).json({message:"important data are missinng"})
     let newCompanie
     if(!notes){
-        newCompanie= await companie.create({
+        newCompanie= await prisma.companie.create({
             data:{
                 name,
                 img,
@@ -82,7 +82,7 @@ exports.AddCompany=async(req,res)=>{
                 }
             })
     }else{
-        newCompanie= await companie.create({
+        newCompanie= await prisma.companie.create({
             data:{
                 name,
                 img,

@@ -5,8 +5,7 @@ exports.getAllEvents=async (req, res) => {
     try {
         const events = await prisma.event.findMany();
         if (!events) return res.status(400).json({ status: 400, message: "No events found" });
-        return res.status(200).json({events
-        });
+        return res.status(200).json(events);
     } catch (err) {
         console.error(err);
         return res.status(500).json({ status: 500, message: "something went wrong" });

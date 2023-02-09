@@ -11,6 +11,7 @@ import HomePage from "@/pages/api/HomePage";
 import Archive from "@/pages/api/Archive";
 import Profile from "@/pages/api/Profile";
 
+
 import Profile from "@/pages/api/Profile";
 
 
@@ -18,6 +19,4 @@ export default function Home() {
 
   return <Archive />;
 }
-
-
 

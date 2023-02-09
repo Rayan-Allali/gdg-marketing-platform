@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-
+import '../styles/globals.css'
 export default function HomePage() {
   return (
     <>

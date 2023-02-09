@@ -5,6 +5,7 @@ import Footer from "@/components/layout/footer";
 import StartupCard from "@/components/StartupCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import '../styles/globals.css'
 export default function Profile() {
   return (
     <>

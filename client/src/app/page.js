@@ -1,22 +1,22 @@
 
-import Guest from "@/pages/api/Guest";
-import Startups from "@/pages/api/Startups";
+import Guest from "@/pages/Guest";
+import Startups from "@/pages/Startups";
 import Image from "next/image";
-import Auth from "@/pages/api/Auth";
+import Auth from "@/pages/Auth";
 import Card from "@/components/Card";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import CardEvent from "@/components/CardEvent";
-import HomePage from "@/pages/api/HomePage";
-import Archive from "@/pages/api/Archive";
+import HomePage from "@/pages/HomePage";
+import Archive from "@/pages/Archive";
 
 
-import Profile from "@/pages/api/Profile";
+import Profile from "@/pages/Profile";
 
 
 export default function Home() {
 
 
-  return <Archive />;
+  return <HomePage />;
 }
 

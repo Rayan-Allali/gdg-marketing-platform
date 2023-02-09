@@ -1,9 +1,38 @@
+"use client";
 import Image from "next/image";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import Card from "@/components/Card";
-
+import { useState,useEffect } from "react";
+import axios from "axios";
 export default function Guest() {
+  const [cards,setCards] = useState([{
+    img:"/akram_boutouchent.png",
+    lastName:"sof1",
+    firstName:"kara1",
+    job:"cccc",
+    community:"ddddddd",
+  },
+  {
+    img:"/akram_boutouchent.png",
+    lastName:"sof2",
+    firstName:"kara2",
+    job:"ccccccc",
+    community:"dddddddd",
+  },
+  {
+    img:"/akram_boutouchent.png",
+    lastName:"sof3",
+    firstName:"kara3",
+    job:"ccccccccc",
+    community:"ddddddddd",
+  }
+]);
+
+
+
+
+
   return (
     <>
       <div className="absolute">
@@ -149,16 +178,16 @@ export default function Guest() {
 
           <div className="flex flex-col gap-[3vh]">
             <div className="flex gap-[4vw]">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <Card card= {cards[0]} />
+              <Card card = {cards[1]}/>
+              <Card card={cards[2]} />
+              <Card card={cards[0]}/>
             </div>
             <div className="flex gap-[4vw]">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <Card card={cards[0]}/>
+              <Card card={cards[0]}/>
+              <Card card={cards[0]}/>
+              <Card card={cards[0]}/>
             </div>
           </div>
         </div>

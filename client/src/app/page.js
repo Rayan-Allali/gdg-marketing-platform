@@ -1,3 +1,4 @@
+
 import Guest from "@/pages/api/Guest";
 import Startups from "@/pages/api/Startups";
 import Image from "next/image";
@@ -9,4 +10,5 @@ import Home from "@/pages/api/Home";
 
 export default function Home() {
   return <Home />;
-}
+import Profile from "@/pages/api/Profile";
+

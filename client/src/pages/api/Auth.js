@@ -1,3 +1,4 @@
+import { loadDefaultErrorComponents } from "next/dist/server/load-components";
 import Image from "next/image";
 
 export default function Auth() {

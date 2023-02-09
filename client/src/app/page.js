@@ -5,9 +5,10 @@ import Image from "next/image";
 import Auth from "@/pages/api/Auth";
 import Card from "@/components/Card";
 import Navbar from "@/components/layout/navbar";
-import Profile from "@/pages/api/Profile";
-
+import Footer from "@/components/layout/footer";
+import Home from "@/pages/api/Home";
 
 export default function Home() {
-  return <Profile/>;
-}
+  return <Home />;
+import Profile from "@/pages/api/Profile";
+

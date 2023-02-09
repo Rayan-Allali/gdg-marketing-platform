@@ -9,13 +9,13 @@ import Footer from "@/components/layout/footer";
 import CardEvent from "@/components/CardEvent";
 import HomePage from "@/pages/api/HomePage";
 import Archive from "@/pages/api/Archive";
+import Profile from "@/pages/api/Profile";
 
 
 import Profile from "@/pages/api/Profile";
 
 
 export default function Home() {
-
 
   return <Archive />;
 }

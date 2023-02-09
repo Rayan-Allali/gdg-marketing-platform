@@ -6,30 +6,42 @@ import Card from "@/components/Card";
 import { useState,useEffect } from "react";
 import axios from "axios";
 export default function Guest() {
-  const [cards,setCards] = useState([{
+  const [guest,setGuest] = useState([{
+    guestId:null,
     img:"/akram_boutouchent.png",
     lastName:"sof1",
     firstName:"kara1",
-    job:"cccc",
-    community:"ddddddd",
+    country:"",
+    age:"",
   },
-  {
-    img:"/akram_boutouchent.png",
-    lastName:"sof2",
-    firstName:"kara2",
-    job:"ccccccc",
-    community:"dddddddd",
-  },
-  {
-    img:"/akram_boutouchent.png",
-    lastName:"sof3",
-    firstName:"kara3",
-    job:"ccccccccc",
-    community:"ddddddddd",
-  }
 ]);
 
 
+useEffect(()=> {
+  axios.get(`http://localhost:8000/api/guest/`).then((resp)=>{
+   const copy = resp.data ;
+   copy.map((card) => card.img = "/akram_boutouchent.png" )
+   setstartupCards(copy);
+  }
+  )
+}
+  ,[]);
+  
+const ensStartups=startupCards.map(
+ (card)=>{
+    
+      
+    return(
+    
+      
+       <StartupCard startupCard= {card} />       
+      
+    
+    )
+ }
+
+
+);
 
 
 

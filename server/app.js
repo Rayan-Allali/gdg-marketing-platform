@@ -10,6 +10,7 @@ app.use(express.json());
 app.use('/api/companie',require("./routes/companieRoutes"))
 app.use('/api/guest',require("./routes/guestRoutes"))
 app.use("/api/role",require("./routes/roleRoutes"))
+app.use("/api/event",require("./routes/eventRoutes"))
 app.use(morgan('combined'))
 app.use((req,res,next)=>{
     console.log("hello from the middleware")

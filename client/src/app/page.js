@@ -16,7 +16,7 @@ import Profile from "@/pages/api/Profile";
 export default function Home() {
 
 
-  return <Guest />;
+  return <Archive />;
 }
 
 

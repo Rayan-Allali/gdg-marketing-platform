@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function CardEvent() {
+export default function CardEvent(props) {
   return (
     <div className="z-0">
       <div className="w-[15vw] py-[2vh] flex flex-col items-center justify-center gap-[3.2vh]">
@@ -9,11 +9,11 @@ export default function CardEvent() {
             width={218}
             height={218}
             className="rounded-[100%]"
-            src={"/DevFest 22.png"}
+            src={props.event.img}
           ></Image>
         </div>
         <h1 className="font-bold text-[#5F6368] w-[11vw] text-center">
-          DEVFEST 22
+          {props.event.Name}
         </h1>
         <div className="flex flex-col items-center text-[0.8rem] text-[#5F6368] gap-[8px]">
           <p>GDG Algiers</p>

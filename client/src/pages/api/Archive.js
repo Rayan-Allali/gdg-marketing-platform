@@ -1,9 +1,32 @@
+"use client";
 import Image from "next/image";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import CardEvent from "@/components/CardEvent";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Archive() {
+  const [event, setEvent] = useState([
+    {
+      eventId: null,
+      name: "",
+      img: "",
+    },
+  ]);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/event/`).then((resp) => {
+      const copy = resp.data;
+      copy.map((card) => (card.img = "/DevFest 22.png"));
+      setEvent(copy);
+    });
+  }, []);
+
+  const ensEvent = event.map((card) => {
+    return <CardEvent event={card} />;
+  });
+
   return (
     <>
       <Navbar />
@@ -16,24 +39,7 @@ export default function Archive() {
           </p>
         </div>
         <div className="z-[-1]">
-          <div className="py-16 flex justify-between">
-            <CardEvent />
-            <CardEvent />
-            <CardEvent />
-            <CardEvent />
-          </div>
-          <div className="py-16 flex justify-between">
-            <CardEvent />
-            <CardEvent />
-            <CardEvent />
-            <CardEvent />
-          </div>
-          <div className="py-16 flex justify-between ">
-            <CardEvent />
-            <CardEvent />
-            <CardEvent />
-            <CardEvent />
-          </div>
+        <div className="grid grid-cols-4 gap-[16]">{ensEvent}</div>
         </div>
         <div className="w-[100%] h-[50vh] mt-[-20vh] flex justify-center items-center">
           <button className="px-[8vw] py-[2vh] text-[#0D9D58] border rounded-[8px] border-[#0D9D58] font-bold hover:bg-[#0D9D58] hover:text-white">

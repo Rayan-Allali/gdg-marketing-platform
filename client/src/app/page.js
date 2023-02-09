@@ -10,12 +10,13 @@ import CardEvent from "@/components/CardEvent";
 import HomePage from "@/pages/api/HomePage";
 import Archive from "@/pages/api/Archive";
 
-export default function Home() {
-<<<<<<< HEAD
-  return <Archive />;
-}
-=======
-  return <Home />;
+
 import Profile from "@/pages/api/Profile";
 
->>>>>>> 65fb154adea854b5ac7f2b4fad1a221f4b907c6e
+
+export default function Home() {
+
+
+  return <Archive />;
+}
+

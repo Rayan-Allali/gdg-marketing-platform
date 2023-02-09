@@ -2,7 +2,7 @@ import Image from "next/image";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Navbar />

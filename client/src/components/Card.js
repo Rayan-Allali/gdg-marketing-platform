@@ -21,8 +21,8 @@ export default function Card(props) {
           {props.card.firstName} {props.card.lastName}
         </h1>
         <div className="flex flex-col items-center text-[0.8rem] text-[#5F6368] gap-[8px]">
-          <p>{props.card.job}</p>
-          <p>{props.card.community}</p>
+          <p>{props.card.country}</p>
+          <p>{props.card.age}</p>
         </div>
         <button className="text-[#3069FE] w-[7.5vw] h-[6vh] border rounded-[4px] text-[0.7rem]">
           View Profile

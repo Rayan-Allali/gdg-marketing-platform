@@ -21,20 +21,20 @@ useEffect(()=> {
   axios.get(`http://localhost:8000/api/guest/`).then((resp)=>{
    const copy = resp.data ;
    copy.map((card) => card.img = "/akram_boutouchent.png" )
-   setstartupCards(copy);
+   setGuest(copy);
   }
   )
 }
   ,[]);
   
-const ensStartups=startupCards.map(
+const ensGuest=guest.map(
  (card)=>{
     
       
     return(
     
       
-       <StartupCard startupCard= {card} />       
+       <Card card= {card} />       
       
     
     )
@@ -188,20 +188,7 @@ const ensStartups=startupCards.map(
             </div>
           </div>
 
-          <div className="flex flex-col gap-[3vh]">
-            <div className="flex gap-[4vw]">
-              <Card card= {cards[0]} />
-              <Card card = {cards[1]}/>
-              <Card card={cards[2]} />
-              <Card card={cards[0]}/>
-            </div>
-            <div className="flex gap-[4vw]">
-              <Card card={cards[0]}/>
-              <Card card={cards[0]}/>
-              <Card card={cards[0]}/>
-              <Card card={cards[0]}/>
-            </div>
-          </div>
+          <div className="grid grid-cols-4 gap-[3vh]">{ensGuest}</div>
         </div>
       </div>
 

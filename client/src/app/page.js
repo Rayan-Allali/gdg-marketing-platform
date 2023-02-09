@@ -5,8 +5,10 @@ import Auth from "@/pages/api/Auth";
 import Card from "@/components/Card";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-import Home from "@/pages/api/Home";
+import CardEvent from "@/components/CardEvent";
+import HomePage from "@/pages/api/HomePage";
+import Archive from "@/pages/api/Archive";
 
 export default function Home() {
-  return <Home />;
+  return <Archive />;
 }

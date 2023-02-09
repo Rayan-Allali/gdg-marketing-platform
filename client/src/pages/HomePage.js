@@ -1,8 +1,8 @@
-
 import Image from "next/image";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
-
+import Link from "next/link";
+import "../styles/globals.css";
 export default function HomePage() {
   return (
     <>
@@ -18,9 +18,11 @@ export default function HomePage() {
           Welcome To <span className="text-[#0D9D58]">GDG Algiers</span>{" "}
           Marketing Platform
         </h1>
-        <button className="px-[4vw] py-[2vh] text-[#0D9D58] border rounded-[8px] border-[#0D9D58] font-bold hover:bg-[#0D9D58] hover:text-white">
-          Get Started
-        </button>
+        <Link href="http://localhost:3000/Guest">
+          <button className="px-[4vw] py-[2vh] text-[#0D9D58] border rounded-[8px] border-[#0D9D58] font-bold hover:bg-[#0D9D58] hover:text-white">
+            Get Started
+          </button>
+        </Link>
       </div>
       <div className="flex items-center justify-center flex-col gap-16 my-32">
         <h2 className="font-bold text-2xl">Powered By</h2>

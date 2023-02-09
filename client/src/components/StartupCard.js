@@ -24,7 +24,9 @@ export default function StartupCard(props) {
           <p>{props.startupCard.country}</p>
           <p>Technologie</p>
         </div>
-        <button className="text-[#3069FE] w-[7.5vw] h-[6vh] border rounded-[4px] text-[0.7rem]">
+        <button
+         
+         className="text-[#3069FE] w-[7.5vw] h-[6vh] border rounded-[4px] text-[0.7rem]">
           View Profile
         </button>
       </div>

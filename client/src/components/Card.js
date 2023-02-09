@@ -1,10 +1,10 @@
-
+"use client";
 
 import Image from "next/image";
-
 export default function Card(props) {
   return (
     <>
+   
       <div className="w-[15vw] py-[2vh] flex flex-col items-center justify-center gap-[3.2vh]">
         <div className="w-[11vw] flex flex-col items-center">
           <Image
@@ -24,10 +24,13 @@ export default function Card(props) {
           <p>{props.card.country}</p>
           <p>{props.card.age}</p>
         </div>
-        <button className="text-[#3069FE] w-[7.5vw] h-[6vh] border rounded-[4px] text-[0.7rem]">
+        <button 
+       
+         className="text-[#3069FE] w-[7.5vw] h-[6vh] border rounded-[4px] text-[0.7rem]">
           View Profile
         </button>
       </div>
+
     </>
   );
 }

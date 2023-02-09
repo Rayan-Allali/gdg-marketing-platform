@@ -3,81 +3,68 @@ import Image from "next/image";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import StartupCard from "@/components/StartupCard";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import '../styles/globals.css'
+import "../../styles/globals.css";
 export default function Startups() {
-  const [startupCards,setstartupCards] = useState([{
-    companieId:null,
-    img:"/akram_boutouchent.png",
-    name:"dddd",
-    country:"bbb",
-    size:""
-  },
-  {
-    companieId:null,
-    img:"/akram_boutouchent.png",
-    name:"dddd",
-    country:"bbb",
-    size:""
-  },
-  {
-    companieId:null,
-    img:"/akram_boutouchent.png",
-    name:"dddd",
-    country:"bbb",
-    size:""
-  },
-  {
-    companieId:null,
-    img:"/akram_boutouchent.png",
-    name:"dddd",
-    country:"bbb",
-    size:""
-  },
-  {
-    companieId:null,
-    img:"/akram_boutouchent.png",
-    name:"ddf",
-    country:"fff",
-    size:""
-  },
-  {
-    companieId:null,
-    img:"/akram_boutouchent.png",
-    name:"ggg",
-    country:"gfgf",
-    size:""
-  },
-]);
+  const [startupCards, setstartupCards] = useState([
+    {
+      companieId: null,
+      img: "/akram_boutouchent.png",
+      name: "dddd",
+      country: "bbb",
+      size: "",
+    },
+    {
+      companieId: null,
+      img: "/akram_boutouchent.png",
+      name: "dddd",
+      country: "bbb",
+      size: "",
+    },
+    {
+      companieId: null,
+      img: "/akram_boutouchent.png",
+      name: "dddd",
+      country: "bbb",
+      size: "",
+    },
+    {
+      companieId: null,
+      img: "/akram_boutouchent.png",
+      name: "dddd",
+      country: "bbb",
+      size: "",
+    },
+    {
+      companieId: null,
+      img: "/akram_boutouchent.png",
+      name: "ddf",
+      country: "fff",
+      size: "",
+    },
+    {
+      companieId: null,
+      img: "/akram_boutouchent.png",
+      name: "ggg",
+      country: "gfgf",
+      size: "",
+    },
+  ]);
 
-useEffect(()=> {
-  axios.get(`http://localhost:8000/api/companie/`).then((resp)=>{
-   const copy = resp.data ;
-   copy.map((card) => card.img = "/akram_boutouchent.png" )
-   setstartupCards(copy);
-  }
-  )
-}
-  ,[]);
-  
-const [counter,setCounter]=useState(0);
-const ensStartups=startupCards.map(
- (card)=>{
-    
-      
-    return(
-    
-      
-       <StartupCard startupCard= {card} />       
-      
-    
-    )
- }
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/companie/`).then((resp) => {
+      const copy = resp.data;
+      copy.map((card) => (card.img = "/akram_boutouchent.png"));
+      setstartupCards(copy);
+    });
+  }, []);
 
+  const [counter, setCounter] = useState(0);
+  const ensStartups = startupCards.map((card) => {
+    return <StartupCard startupCard={card} />;
+  });
 
-);
-  
   return (
     <>
       <div className="absolute">
@@ -215,11 +202,7 @@ const ensStartups=startupCards.map(
             </div>
           </div>
 
-          <div className="grid grid-cols-4 gap-[3vh]">
-          
-              {ensStartups}
-            
-          </div>
+          <div className="grid grid-cols-4 gap-[3vh]">{ensStartups}</div>
         </div>
       </div>
 

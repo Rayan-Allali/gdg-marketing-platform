@@ -3,48 +3,32 @@ import Image from "next/image";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import Card from "@/components/Card";
-import { useState,useEffect } from "react";
-import '../styles/globals.css'
+import { useState, useEffect } from "react";
+import "../../styles/globals.css";
 import axios from "axios";
 export default function Guest() {
-  const [guest,setGuest] = useState([{
-    guestId:null,
-    img:"/akram_boutouchent.png",
-    lastName:"sof1",
-    firstName:"kara1",
-    country:"",
-    age:"",
-  },
-]);
+  const [guest, setGuest] = useState([
+    {
+      guestId: null,
+      img: "/akram_boutouchent.png",
+      lastName: "sof1",
+      firstName: "kara1",
+      country: "",
+      age: "",
+    },
+  ]);
 
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/guest/`).then((resp) => {
+      const copy = resp.data;
+      copy.map((card) => (card.img = "/akram_boutouchent.png"));
+      setGuest(copy);
+    });
+  }, []);
 
-useEffect(()=> {
-  axios.get(`http://localhost:8000/api/guest/`).then((resp)=>{
-   const copy = resp.data ;
-   copy.map((card) => card.img = "/akram_boutouchent.png" )
-   setGuest(copy);
-  }
-  )
-}
-  ,[]);
-  
-const ensGuest=guest.map(
- (card)=>{
-    
-      
-    return(
-    
-      
-       <Card card= {card} />       
-      
-    
-    )
- }
-
-
-);
-
-
+  const ensGuest = guest.map((card) => {
+    return <Card card={card} />;
+  });
 
   return (
     <>

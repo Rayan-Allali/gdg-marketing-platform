@@ -1,6 +1,7 @@
 import { loadDefaultErrorComponents } from "next/dist/server/load-components";
 import Image from "next/image";
-import '../styles/globals.css'
+import Link from "next/link";
+import "../styles/globals.css";
 
 export default function Auth() {
   return (
@@ -26,7 +27,10 @@ export default function Auth() {
             />
           </div>
           <div>
-            <label for="Password" className="bg-white w-[32vw] h-[10vh]"></label>
+            <label
+              for="Password"
+              className="bg-white w-[32vw] h-[10vh]"
+            ></label>
             <input
               placeholder="Enter your Password"
               className="bg-white w-[30vw] h-[10vh] px-[1.5vw] drop-shadow-[0_8px_8px_rgba(0,0,0,0.08)] rounded-[12px]"
@@ -37,12 +41,14 @@ export default function Auth() {
           </div>
 
           <div className="flex gap-[3vh] flex-col items-center">
-            <button
-              type="submit"
-              className="font-bold bg-[#1976D2] text-white w-[27vw] h-[9vh] text-[18px] rounded-[18px]"
-            >
-              Continue
-            </button>
+            <Link href="http://localhost:3000/HomePage">
+              <button
+                type="submit"
+                className="font-bold bg-[#1976D2] text-white w-[27vw] h-[9vh] text-[18px] rounded-[18px]"
+              >
+                Continue
+              </button>
+            </Link>
             <div className="font-regular bg-white w-[30vw] h-[10vh] text-[18px] rounded-[18px] flex flex-row  justify-center drop-shadow-xl items-center gap-[1.2vw]">
               <Image width={48} height={48} src={"/google.svg"}></Image>
               <p className="text-[#847E7E]">Log in with Google</p>

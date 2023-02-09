@@ -39,7 +39,7 @@ export default function Archive() {
           </p>
         </div>
         <div className="z-[-1]">
-        <div className="grid grid-cols-6 gap-[3vh]">{ensEvent}</div>
+        <div className="grid grid-cols-5 gap-[3vh]">{ensEvent}</div>
         </div>
         <div className="w-[100%] h-[50vh] mt-[-20vh] flex justify-center items-center">
           <button className="px-[8vw] py-[2vh] text-[#0D9D58] border rounded-[8px] border-[#0D9D58] font-bold hover:bg-[#0D9D58] hover:text-white">
